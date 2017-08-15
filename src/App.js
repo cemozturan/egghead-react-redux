@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TodoForm from './components/todo-form';
+import TodoList from './components/todo-list';
 
 class App extends Component {
   render() {
@@ -11,23 +13,8 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="todo-app">
-          <div>
-            <form>
-              <input type="text" />
-            </form>
-          </div>
-          <div className="todo-list">
-            <ul>
-              {this.props.todos.map(todo => {
-                return (
-                  <li key={todo.id}>
-                    <input type="checkbox" defaultChecked={todo.completed} />
-                    {todo.text}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <TodoForm />
+          <TodoList todos={this.props.todos} />
         </div>
       </div>
     );
