@@ -5,9 +5,19 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 
-const state = store.getState();
+const render = () => {
+  const state = store.getState();
+  ReactDOM.render(
+    <App {...state}/>,
+    document.getElementById('root'));
+}
 
-ReactDOM.render(
-  <App {...state}/>,
-  document.getElementById('root'));
+render();
+
+store.subscribe(render);
+
+setTimeout(() => {
+  store.dispatch({type: 'TODO_ADD', payload: { id: 4, text: 'cem baba', completed: false}});
+}, 1500)
+
 registerServiceWorker();
