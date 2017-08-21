@@ -5,7 +5,6 @@ import './App.css';
 import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
 import { updateCurrent } from './reducers/todo';
-import { bindActionCreators } from 'redux';
 
 class App extends Component {
   render() {
@@ -25,6 +24,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => state;
-const mapDispatchToProps = (dispatch) => bindActionCreators({updateCurrent}, dispatch);
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
-export default ConnectedApp;
+export default connect(
+  mapStateToProps,
+  { updateCurrent }
+)(App);
