@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import store from './store';
 
-const state = [
-  {id: 1, text: 'Create static UI', completed: true},
-  {id: 2, text: 'Initialise state', completed: true},
-  {id: 3, text: 'Render based on state', completed: false}
-];
+const state = store.getState();
 
 ReactDOM.render(
-  <App todos={state}/>,
+  <App {...state}/>,
   document.getElementById('root'));
 registerServiceWorker();
