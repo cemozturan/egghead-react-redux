@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateCurrent } from './reducers/todo';
+import { updateCurrent } from '../reducers/todo';
 
 const TodoForm = (props) => {
   const { currentTodo, updateCurrent } = props;
